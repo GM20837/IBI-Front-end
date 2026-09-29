@@ -82,14 +82,14 @@ npm run lint
 
 ```text
 src/
-├── components/    # Componentes reutilizáveis
-├── constants/     # Dados e constantes da aplicação
-├── hooks/         # Hooks e gerenciamento de estados
+├── assets/        # Imagens, ícones e outros arquivos estáticos
+├── components/    # Componentes reutilizáveis da aplicação
 ├── pages/         # Páginas da aplicação
-├── routes/        # Rotas da aplicação
+├── routes/        # Rotas e navegação
 ├── services/      # Serviços e comunicação com APIs
-├── styles/        # Estilos globais e variáveis
-├── App.jsx        # Componente principal
+├── styles/        # Estilos e arquivos de configuração visual
+├── App.jsx        # Componente principal da aplicação
+├── index.css      # Estilos globais
 └── main.jsx       # Inicialização do React
 
 public/            # Ícones e arquivos públicos
