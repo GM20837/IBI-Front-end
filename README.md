@@ -38,3 +38,8 @@ Clone o repositório:
 
 ```bash
 git clone https://github.com/GM20837/IBI-Front-end.git
+Entre na pasta do projeto:
+cd IBI-Front-end
+Instale as dependências:
+npm install
+Se preferir reproduzir exatamente as versões registradas no lockfile:
