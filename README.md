@@ -2,21 +2,23 @@
 
 Marketplace para descobrir produtos e serviços ligados às tradições afro-brasileiras, conectando clientes, lojas, casas/terreiros e entregadores em uma experiência digital simples, respeitosa e acessível.
 
-A interface foi pensada para dispositivos móveis e apresenta uma experiência de navegação com catálogo, busca, favoritos, carrinho e comerciantes.
+A interface foi pensada para dispositivos móveis e apresenta uma experiência de navegação com catálogo, busca, favoritos e carrinho.
 
-> Este projeto está em desenvolvimento. Atualmente, parte das funcionalidades utiliza dados estáticos e ainda não está conectada ao backend, sistema de pagamentos ou serviço de entrega.
+> Este projeto está em desenvolvimento. Atualmente, a aplicação utiliza dados estáticos e algumas funcionalidades ainda não estão conectadas a um backend, sistema de pagamento ou serviço de entrega.
 
 ## Funcionalidades
 
-- Explorar produtos e filtrar por categoria, texto ou opções de entrega.
-- Consultar lojas e casas/terreiros em uma lista de comerciantes.
-- Visualizar produtos e informações dos comerciantes.
-- Salvar produtos favoritos e adicionar ou remover itens do carrinho.
+- Explorar produtos disponíveis na plataforma.
+- Filtrar produtos por categoria e texto.
+- Consultar lojas e casas/terreiros cadastrados.
+- Visualizar informações dos produtos e comerciantes.
+- Salvar produtos favoritos.
+- Adicionar e remover produtos do carrinho.
 - Visualizar a quantidade de itens e o subtotal do carrinho.
 - Navegar entre início, lojas, produtos salvos e carrinho.
 - Interface responsiva para dispositivos móveis.
 
-> Carrinho, favoritos e parte dos dados utilizam estado local e podem ser reiniciados quando a página é recarregada.
+Os dados utilizados atualmente são estáticos e o estado do carrinho e dos favoritos é mantido localmente durante a sessão.
 
 ## Tecnologias
 
@@ -38,8 +40,16 @@ Clone o repositório:
 
 ```bash
 git clone https://github.com/GM20837/IBI-Front-end.git
-Entre na pasta do projeto:
+Acesse a pasta do projeto:
 cd IBI-Front-end
 Instale as dependências:
 npm install
-Se preferir reproduzir exatamente as versões registradas no lockfile:
+Inicie o servidor de desenvolvimento:
+npm run dev
+O Vite informará no terminal o endereço local para acessar a aplicação.
+Para gerar a versão de produção:
+npm run build
+Para visualizar a versão de produção:
+npm run preview
+Para verificar o código com ESLint:
+npm run lint
