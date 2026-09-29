@@ -1,24 +1,22 @@
 # IBI
 
-Marketplace para descobrir e adquirir produtos e serviços ligados às tradições afro-brasileiras, conectando clientes, lojas, casas/terreiros e entregadores em uma experiência digital simples, respeitosa e acessível.
+Marketplace para descobrir produtos e serviços ligados às tradições afro-brasileiras, conectando clientes, lojas, casas/terreiros e entregadores em uma experiência digital simples, respeitosa e acessível.
 
-A plataforma foi pensada inicialmente para dispositivos móveis e oferece uma experiência de navegação por catálogo, busca, favoritos, carrinho e comerciantes.
+A interface foi pensada para dispositivos móveis e apresenta uma experiência de navegação com catálogo, busca, favoritos, carrinho e comerciantes.
 
-> Este projeto está em desenvolvimento. Atualmente, algumas funcionalidades utilizam dados estáticos e ainda não estão conectadas ao backend, sistema de pagamentos ou serviço de entrega.
+> Este projeto está em desenvolvimento. Atualmente, parte das funcionalidades utiliza dados estáticos e ainda não está conectada ao backend, sistema de pagamentos ou serviço de entrega.
 
 ## Funcionalidades
 
-- Explorar produtos e serviços disponíveis na plataforma.
-- Filtrar produtos por categoria, texto e opções de entrega.
-- Consultar lojas e casas/terreiros cadastrados.
+- Explorar produtos e filtrar por categoria, texto ou opções de entrega.
+- Consultar lojas e casas/terreiros em uma lista de comerciantes.
 - Visualizar produtos e informações dos comerciantes.
-- Salvar produtos como favoritos.
-- Adicionar e remover produtos do carrinho.
-- Visualizar quantidade de itens e subtotal do pedido.
+- Salvar produtos favoritos e adicionar ou remover itens do carrinho.
+- Visualizar a quantidade de itens e o subtotal do carrinho.
 - Navegar entre início, lojas, produtos salvos e carrinho.
 - Interface responsiva para dispositivos móveis.
 
-> Atualmente, carrinho, favoritos e parte dos dados utilizam estado local e podem ser reiniciados ao recarregar a página. A integração com backend, pagamentos e entregas será adicionada durante o desenvolvimento do projeto.
+> Carrinho, favoritos e parte dos dados utilizam estado local e podem ser reiniciados quando a página é recarregada.
 
 ## Tecnologias
 
@@ -32,6 +30,7 @@ A plataforma foi pensada inicialmente para dispositivos móveis e oferece uma ex
 
 - Node.js 20.19 ou superior, ou 22.12 ou superior
 - npm
+- Git
 
 ## Como executar
 
