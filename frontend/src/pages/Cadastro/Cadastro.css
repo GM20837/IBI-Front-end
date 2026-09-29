@@ -1,0 +1,610 @@
+/* ==========================================================================
+   1. ESTRUTURA BASE E CONTAINER
+   ========================================================================== */
+
+   .register-page {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8F6F0;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  .register-card {
+    width: 100%;
+    max-width: 410px;
+    background: #FFFFFF;
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(80, 60, 40, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ==========================================================================
+     2. HEADER, LOGO E BOTÃO VOLTAR
+     ========================================================================== */
+  
+  .register-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn-back {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #7A7A7A;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .btn-back svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+  }
+  
+  .btn-back:hover {
+    color: #1A1A1A;
+  }
+  
+  .mini-logo .logo-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #C45525;
+  }
+  
+  .step-indicator {
+    font-size: 0.72rem;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    display: block;
+  }
+  
+  /* ==========================================================================
+     3. PASSO 1: CARDS DE SELEÇÃO DE PERFIL
+     ========================================================================== */
+  
+  .register-title-group {
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  
+  .register-title-group h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 6px;
+  }
+  
+  .register-title-group p {
+    font-size: 0.8rem;
+    color: #777777;
+    line-height: 1.45;
+  }
+  
+  .role-options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  
+  .role-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 16px;
+    border: 1px solid #EFEFEF;
+    border-radius: 20px;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  
+  .role-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .role-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .role-icon-wrapper {
+    width: 38px;
+    height: 38px;
+    background: #F8F8F8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .role-emoji {
+    font-size: 1.1rem;
+  }
+  
+  .role-info {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .role-info h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 2px;
+  }
+  
+  .role-tag {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #888888;
+  }
+  
+  .role-info p {
+    font-size: 0.73rem;
+    color: #666666;
+    line-height: 1.4;
+  }
+  
+  .custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #D8D8D8;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s ease;
+  }
+  
+  .role-benefits {
+    list-style-type: disc;
+    padding-left: 18px;
+    margin-top: 14px;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    text-align: left;
+  }
+  
+  .role-benefits li {
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  
+  /* ESTADOS SELECIONADOS NO PASSO 1 */
+  .role-card.usuario.selected {
+    border: 1.5px solid #C45525;
+    background-color: #FAF5F2;
+  }
+  .role-card.usuario.selected .role-tag { color: #C45525; }
+  .role-card.usuario.selected .custom-radio {
+    border-color: #C45525;
+    background-color: #C45525;
+    box-shadow: inset 0 0 0 3px #FAF5F2;
+  }
+  
+  .role-card.entregador.selected {
+    border: 1.5px solid #4D7C5D;
+    background-color: #F2F6F3;
+  }
+  .role-card.entregador.selected .role-tag { color: #4D7C5D; }
+  .role-card.entregador.selected .custom-radio {
+    border-color: #4D7C5D;
+    background-color: #4D7C5D;
+    box-shadow: inset 0 0 0 3px #F2F6F3;
+  }
+  
+  .role-card.loja.selected {
+    border: 1.5px solid #B8860B;
+    background-color: #FAF8F0;
+  }
+  .role-card.loja.selected .role-tag { color: #B8860B; }
+  .role-card.loja.selected .custom-radio {
+    border-color: #B8860B;
+    background-color: #B8860B;
+    box-shadow: inset 0 0 0 3px #FAF8F0;
+  }
+  
+  .role-card.selected .role-benefits li {
+    color: #2D4336;
+  }
+  
+  /* ==========================================================================
+     4. PASSO 2: FORMULÁRIO E BADGES
+     ========================================================================== */
+  
+  .step-two-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .step-two-header {
+    margin-bottom: 20px;
+  }
+  
+  .user-badge-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  
+  .badge-emoji {
+    font-size: 1rem;
+  }
+  
+  .badge-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .user-badge-group.usuario .badge-text { color: #C45525; }
+  .user-badge-group.entregador .badge-text { color: #5B7B58; }
+  .user-badge-group.loja .badge-text { color: #C08A3E; }
+  
+  .step-two-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 4px 0;
+  }
+  
+  .step-two-header p {
+    font-size: 0.82rem;
+    color: #8C8C8C;
+    margin: 0;
+  }
+  
+  .step-two-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .input-group label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #757575;
+  }
+  
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    stroke: #A8A8A8;
+    pointer-events: none;
+  }
+  
+  .input-wrapper input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px 0 42px;
+    border: 1px solid #ECEBE6;
+    border-radius: 12px;
+    background-color: #FAFAFA;
+    font-size: 0.88rem;
+    color: #1A1A1A;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  
+  .input-wrapper input::placeholder {
+    color: #C2C2C2;
+  }
+  
+  .input-wrapper input:focus {
+    background-color: #FFFFFF;
+    border-color: #C45525;
+  }
+  
+  .info-box-entregador {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: #F5F4EE;
+    border: 1px solid #E6E4DC;
+    padding: 14px;
+    border-radius: 12px;
+    margin-top: 4px;
+  }
+  
+  .info-box-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    stroke: #8C8C8C;
+    margin-top: 2px;
+  }
+  
+  .info-box-entregador p {
+    font-size: 0.75rem;
+    color: #686868;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  /* ==========================================================================
+     6. PASSO 3: CRIAÇÃO DE SENHA E REQUISITOS
+     ========================================================================== */
+  
+  .step-three-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  /* Card de Perfil Resumido */
+  .user-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #FAFAFA;
+    border: 1px solid #EDEDED;
+    padding: 12px 16px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .avatar-circle {
+    width: 38px;
+    height: 38px;
+    background-color: #C45525;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .user-info {
+    flex: 1;
+  }
+  
+  .user-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 2px 0;
+  }
+  
+  .user-role {
+    font-size: 0.72rem;
+    color: #8C8C8C;
+    margin: 0;
+  }
+  
+  .btn-edit {
+    background: transparent;
+    border: none;
+    color: #C45525;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+  
+  .btn-edit:hover {
+    text-decoration: underline;
+  }
+  
+  .step-three-header {
+    margin-bottom: 18px;
+  }
+  
+  .step-three-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 4px 0;
+  }
+  
+  .step-three-header p {
+    font-size: 0.82rem;
+    color: #8C8C8C;
+    margin: 0;
+  }
+  
+  .step-three-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Campo da Senha com Botão de Revelar */
+  .password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+  }
+  
+  .password-toggle {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .input-wrapper input[type="password"],
+  .input-wrapper input[type="text"] {
+    padding-right: 42px;
+  }
+  
+  /* Regras / Requisitos da Senha */
+  .password-requirements {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: -4px;
+  }
+  
+  .requirement-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: #999999;
+    transition: color 0.2s ease;
+  }
+  
+  .check-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid #CCCCCC;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+  
+  /* Estado Ativo/Válido dos Requisitos */
+  .requirement-item.valid {
+    color: #2D4336;
+    font-weight: 500;
+  }
+  
+  .requirement-item.valid .check-circle {
+    background-color: #4D7C5D;
+    border-color: #4D7C5D;
+    position: relative;
+  }
+  
+  .requirement-item.valid .check-circle::after {
+    content: '';
+    width: 4px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+  }
+  
+  .terms-text {
+    font-size: 0.72rem;
+    color: #8C8C8C;
+    line-height: 1.4;
+    margin: 4px 0 0 0;
+  }
+  
+  .terms-text a {
+    color: #C45525;
+    text-decoration: none;
+  }
+  
+  .terms-text a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ==========================================================================
+     5. BOTÕES E RODAPÉ
+     ========================================================================== */
+  
+  .btn-continue {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity 0.2s ease, transform 0.1s ease, background-color 0.2s ease;
+  }
+  
+  .btn-continue:disabled {
+    background-color: #E6E4DC !important;
+    color: #A3A199 !important;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+  
+  .btn-continue:active:not(:disabled) {
+    transform: scale(0.985);
+  }
+  
+  .btn-continue.usuario {
+    background-color: #C45525;
+    color: #FFFFFF;
+  }
+  
+  .btn-continue.entregador {
+    background-color: #A3B19B;
+    color: #FFFFFF;
+  }
+  
+  .btn-continue.loja {
+    background-color: #E2C292;
+    color: #4A381E;
+  }
+  
+  .register-footer {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #8C8C8C;
+    margin-top: 20px;
+  }
+  
+  .register-footer a {
+    color: #C45525;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 3px;
+  }
+  
+  .register-footer a:hover {
+    text-decoration: underline;
+  }

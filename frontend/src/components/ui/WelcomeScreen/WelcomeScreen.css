@@ -1,0 +1,244 @@
+/* ==========================================================================
+   ESTRUTURA E CORES DO TEMA
+   ========================================================================== */
+
+   .welcome-screen-root {
+    --accent-color: #C45525;
+    --bg-color: #FAF8F5;
+    
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* 3.8s -> Fade out completo da tela */
+    animation: screenFadeOut 0.7s cubic-bezier(0.4, 0, 0.2, 1) 3.8s forwards;
+  }
+  
+  .welcome-screen-root.entregador {
+    --accent-color: #4D7C5D;
+  }
+  
+  .welcome-screen-root.casa_religiao,
+  .welcome-screen-root.loja {
+    --accent-color: #B8860B;
+  }
+  
+  /* ==========================================================================
+     ELEMENTOS DE FUNDO (RINGS & STRIPES - 0.0s)
+     ========================================================================== */
+  
+  .stripe-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #C45525 33%, #4D7C5D 33% 66%, #B8860B 66%);
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  .stripe-top { top: 0; }
+  .stripe-bottom { bottom: 0; }
+  
+  .ambient-rings {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--accent-color);
+    opacity: 0;
+    animation: ringExpand 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .ring-1 { width: 220px; height: 220px; opacity: 0.08; animation-delay: 0.1s; }
+  .ring-2 { width: 340px; height: 340px; opacity: 0.05; animation-delay: 0.25s; }
+  .ring-3 { width: 480px; height: 480px; opacity: 0.03; animation-delay: 0.4s; }
+  
+  /* ==========================================================================
+     CONTEÚDO PRINCIPAL E SEQUÊNCIA DE CRONOGRAMA
+     ========================================================================== */
+  
+  .welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+    max-width: 340px;
+    z-index: 2;
+  }
+  
+  /* 0.15s - Adinkra Mark com Spring Bounce */
+  .adinkra-wrapper {
+    width: 72px;
+    height: 72px;
+    color: var(--accent-color);
+    opacity: 0;
+    transform: scale(0.3);
+    animation: springBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards;
+  }
+  
+  .adinkra-svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 0.35s - "IBI" Wordmark Fade Up */
+  .ibi-wordmark {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #1A1A1A;
+    margin: 12px 0 16px 0;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.6s ease 0.35s forwards;
+  }
+  
+  /* 0.55s - Account-type Emoji Pop (Spring) */
+  .role-emoji-spring {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    opacity: 0;
+    transform: scale(0.2);
+    animation: springBounce 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.55s forwards;
+  }
+  
+  /* 0.65s - Personalized Greeting ("Olá, [Nome]!") */
+  .greeting-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.6s ease 0.65s forwards;
+  }
+  
+  /* 0.82s - Subtitle Description Fade Up */
+  .subtitle-text {
+    font-size: 0.82rem;
+    color: #777777;
+    line-height: 1.45;
+    margin: 0 0 20px 0;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.6s ease 0.82s forwards;
+  }
+  
+  /* 0.9s - 1.6s - Three Feature Pills Slide In (Staggered) */
+  .feature-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .pill {
+    background: #FFFFFF;
+    border: 1px solid #EAE8E3;
+    color: #4A4A4A;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  
+  .pill-1 { animation-delay: 0.9s; }
+  .pill-2 { animation-delay: 1.15s; }
+  .pill-3 { animation-delay: 1.4s; }
+  
+  /* 2.0s - Bouncing Loading Dots */
+  .bouncing-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    animation: fadeIn 0.4s ease 2.0s forwards;
+  }
+  
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    animation: dotBounce 1.2s infinite ease-in-out;
+  }
+  
+  .dot-1 { animation-delay: 2.0s; }
+  .dot-2 { animation-delay: 2.15s; }
+  .dot-3 { animation-delay: 2.3s; }
+  
+  /* ==========================================================================
+     KEYFRAMES DE ANIMAÇÃO
+     ========================================================================== */
+  
+  @keyframes springBounce {
+    0% {
+      opacity: 0;
+      transform: scale(0.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes ringExpand {
+    0% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes dotBounce {
+    0%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  @keyframes screenFadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
